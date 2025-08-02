@@ -1,21 +1,24 @@
 import React from "react";
-import home from "./pages/home";
-import about from "./pages/about";
-import contact from "./pages/contact";
-import products from "./pages/products";
+import { Route, Routes as Routers } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Products from "./pages/Products";
 import NavBar from "./component/NavBar";
-import { Router, Route } from "react-router-dom";
+import Footer from "./component/Footer";
 
 function App() {
   return (
-    <div className="flex flex-col  min-h-screen bg-gray-100">
+    <div className="relative flex flex-col  min-h-screen bg-p5 dark:bg-ss1">
       <NavBar />
-      <Router>
-        <Route path="/" element={<home />} />
-        <Route path="/about" element={<about />} />
-        <Route path="/contact" element={<contact />} />
-        <Route path="/products" element={<products />} />
-      </Router>
+      <Routers>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
+      </Routers>
+
+      <Footer />
     </div>
   );
 }
